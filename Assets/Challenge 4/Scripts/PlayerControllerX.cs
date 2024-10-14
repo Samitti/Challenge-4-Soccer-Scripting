@@ -16,6 +16,8 @@ public class PlayerControllerX : MonoBehaviour
     private float powerupStrength = 25; // how hard to hit enemy with powerup
     private float turboSpeed = 15.0f;
 
+   public ParticleSystem turboSpeedSmoke;
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
@@ -34,6 +36,7 @@ public class PlayerControllerX : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             playerRb.AddForce(focalPoint.transform.forward * turboSpeed, ForceMode.Impulse);
+            turboSpeedSmoke.Play();
         }
     }
 
